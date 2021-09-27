@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 dic = {0 : 'COVID', 1 : 'Normal' , 2 : "Pneumonia"}
 
-model = load_model('covid_model_resnet50_b32_e5_acc92.23.h5')
+#model = load_model('covid_model_resnet50_b32_e5_acc92.23.h5')
 
 #model.make_predict_function()
 
@@ -27,8 +27,9 @@ def predict_label(img_path):
     # Preprocessing the image
     x=image.img_to_array(img)
     x=np.expand_dims(x,axis=0)
-    img_data=preprocess_input(x)  
-    a=np.argmax(model.predict(img_data), axis=1)
+    img_data=preprocess_input(x);a=1  
+    #a=np.argmax(model.predict(img_data), axis=1)
+    
     if(a==0):
         preds="92.23%  chances of the patient been diagnosed with COVID"
     elif(a==1):
