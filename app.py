@@ -17,6 +17,7 @@ app = Flask(__name__)
 
 dic = {0 : 'COVID', 1 : 'Normal' , 2 : "Pneumonia"}
 
+from tensorflow.keras.models import load_model
 model = load_model('covid_model_resnet50_b32_e5_acc92.23.h5')
 
 #model.make_predict_function()
