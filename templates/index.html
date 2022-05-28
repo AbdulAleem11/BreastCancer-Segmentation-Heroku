@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+      margin-left: 10px;
+    }
+    
+    </style>
 </head>
 <body>
 
@@ -30,10 +43,18 @@
     </div>
   </form>
 
-	{% if prediction %}
-  <img src="{{img_path}}" height="400px" width="400px">
-	<h2> Your Prediction   : <i> {{prediction}} </i></h2>
-
+	{% if mask_path %}
+  <!-- <h2> Your Prediction   : <i> {{prediction}} </i></h2> -->
+  <div class="row">
+    <div class="column">
+      <h3>MRI Scan of Breast</h3>
+      <img src="{{img_path}}" height="400px" style="width:100%">
+    </div>
+    <div class="column">
+      <h3>Location of tumour</h3>
+      <img src="{{mask_path}}" height="400px" style="width:100%">
+    </div>
+  </div>
 	{% endif %}
 
 </div>
